@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Gohan fragrance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <header class="logo-header">
+  <img src="img/logooooooooooo.jpeg" alt="Gohan Parfums Logo" class="logo">
+  <h1>GOHAN PARFUMS</h1>
+</header>
+
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#product">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      
+    </nav>
+
+    <header class="section__container header__container" id="home">
+      <div class="header__image">
+        <img src="img/lwajiha.jpeg" alt="header" />
+
+      </div>
+      
+    </header>
+
+    
+
+    
+   
+
+ <section class="products" id="product">
+<div class="collections-container">
+  <!-- Collection Femme -->
+  <div class="collection-wrapper">
+  <a href="collection-femme.html" class="collection-link">
+    <div class="collection-box">
+      <img src="img/lwajihaa2.jpeg" alt="Collection Femme" class="collection-image">
+      <span class="btn-collection">collection-femme</span>
+    </div>
+  </a>
+  <span class="arrow">→</span>
+</div>
+
+
+
+  <!-- Collection Homme -->
+  <div class="collection-wrapper">
+  <a href="collection-homme.html" class="collection-link">
+    <div class="collection-box">
+      <img src="img/lwajihaaaaa.jpeg" alt="Collection Homme" class="collection-image">
+      <span class="btn-collection">collection-homme</span>
+    </div>
+  </a>
+  <span class="arrow">→</span>
+</div>
+<div class="collection-wrapper">
+  <a href="offrepourfemme.html" class="collection-link">
+    <div class="collection-box">
+      <img src="img/offrefemme.jpeg" alt="Collection Femme" class="collection-image">
+      <span class="btn-collection">LES PACKS DECANTS GRATUITS FEMME</span>
+      
+    </div>
+  </a>
+  <span class="arrow">→</span>
+</div>
+ <div class="collection-wrapper">
+  <a href="offrepourhomme.html" class="collection-link">
+    <div class="collection-box">
+      <img src="img/offrehomme.jpeg" alt="Collection Homme" class="collection-image">
+      <span class="btn-collection">LES PACKS DECANTS GRATUITS FEMME</span>
+    </div>
+  </a>
+  <span class="arrow">→</span>
+</div>
+</div>
+
+
+<style>
+/* ===============================
+   SECTION COLLECTIONS
+================================ */
+
+.collections-section {
+  padding: 70px 20px;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.collections-heading {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  color: #111;
+}
+
+/* ===== GRID ===== */
+.collections-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 45px;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* ===== BOX ===== */
+.collection-box {
+  width: 100%;
+  max-width: 320px;
+  height: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f8f8f8;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== IMAGE ===== */
+.collection-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  background-color: #fff;
+}
+
+/* ===== TITLE BUTTON ===== */
+.btn-collection {
+  flex-grow: 1;
+  background-color: #ffffff;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-collection:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+/* ===== LINK ===== */
+.collection-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+
+@media (max-width: 900px) {
+
+  .collections-section {
+    padding: 40px 15px;
+  }
+
+  .collections-heading {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+
+  .collections-container {
+    gap: 18px;
+  }
+
+  .collection-box {
+    height: 220px;
+    border-radius: 18px;
+  }
+
+  /* 👇 هنا الحل الرئيسي للمشكل */
+  .collection-image {
+    height: 150px;
+    object-fit: contain;   /* الصورة كاملة بدون تقطيع */
+    padding: 8px;
+    background-color: #fff;
+  }
+
+  .btn-collection {
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    padding: 8px;
+  }
+}
+
+
+</style>
+ </section>
+ <section class="section__container deals__container">
+      <div class="deals__card">
+        <h2 class="section__header">Des offres exceptionnelles sur les parfums, rien que pour vous</h2>
+        <p>Achetez des parfums haut de gamme en ligne et profitez d'une livraison rapide et directe.</p>
+      </div>
+      <div class="deals__card">
+        <span><i class="ri-cash-line"></i></span>
+        <h4>Paiement à la livraison</h4>
+        <p>Payez en espèces à la réception de votre commande</p>
+      </div>
+      <div class="deals__card">
+        <span><i class="ri-calendar-schedule-line"></i></span>
+        <h4>Livraison entre 24h et 48h</h4>
+        <p>
+          Livraison sous un à deux jours
+        </p>
+      </div>
+       <div class="deals__card">
+        
+        <h4>Livraison gratuite à Oujda</h4>
+        
+      </div>
+      
+    </section>
+
+    <section class="section__container about__container" id="about">
+      <div class="about__header">
+        <div>
+          <h2 class="section__header">About us</h2>
+          <p class="section__description">
+            Inspirés par notre amour de l'excellence, nous sélectionnons des parfums distinctifs conçus pour sublimer chaque instant.
+          </p>
+        </div>
+        
+      </div>
+      
+      </div>
+    </section>
+
+
+    
+
+    <footer class="footer" id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">GOHAN FRAGRANCE</a>
+          </div>
+          <p>
+           Rejoignez-nous pour sublimer votre quotidien grâce à des parfums qui allient élégance, émotion et charme durable.
+          </p>
+          <ul class="footer__socials">
+  <li>
+   <a href="https://www.facebook.com/profile.php?id=61584217507547" target="_blank">
+  <i class="ri-facebook-fill"></i>
+</a>
+
+    </a>
+  </li>
+
+  <li>
+    <a href="https://www.instagram.com/go_han.parfum" target="_blank">
+      <i class="ri-instagram-line"></i>
+    </a>
+  </li>
+</ul>
+
+        </div>
+        
+        <div class="footer__col">
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <ul class="footer__links">
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Cancelation Policy</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 Gohan parfums
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+
+
+
+
+    <!-- زر الشراء -->
+
+
+<!-- الفورم -->
+<div id="orderForm" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+
+    <h3>Informations de commande</h3>
+
+    <input type="text" id="prenom" placeholder="Nom personnel" required>
+    <input type="text" id="nom" placeholder="Nom familial" required>
+    <input type="text" id="ville" placeholder="Ville" required>
+    <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+
+    <button onclick="sendWhatsApp()">Confirmer</button>
+  </div>
+</div>
+
+
+<script>
+ 
+let selectedProduct = "";
+
+function openForm(productName) {
+  selectedProduct = productName;
+  document.getElementById("orderForm").style.display = "block";
+}
+
+
+function closeForm() {
+  document.getElementById("orderForm").style.display = "none";
+}
+
+function sendWhatsApp() {
+  let prenom = document.getElementById("prenom").value;
+  let nom = document.getElementById("nom").value;
+  let ville = document.getElementById("ville").value;
+  let tel = document.getElementById("telephone").value;
+
+  if(prenom === "" || nom === "" || ville === "" || tel === ""){
+    alert("Veuillez remplir tous les champs");
+    return;
+  }
+
+  let message =
+  "🛒 Produit: " + selectedProduct + "%0A%0A" +
+  "Nom: " + prenom + "%0A" +
+  "Prénom: " + nom + "%0A" +
+  "Ville: " + ville + "%0A" +
+  "Téléphone: " + tel;
+
+
+  let whatsappURL = "https://wa.me/212625596851?text=" + message;
+  window.open(whatsappURL, "_blank");
+}
+</script>
+
+
+
+
+<a href="https://wa.me/212681934434" class="whatsapp-float" target="_blank">
+  <i class="ri-whatsapp-line"></i>
+</a>
+
+<script>
+  function openProduct(name, image, prices = null) {
+  localStorage.setItem("productName", name);
+  localStorage.setItem("productImage", image);
+
+  if (prices) {
+    localStorage.setItem("productPrices", JSON.stringify(prices));
+  } else {
+    localStorage.removeItem("productPrices"); // إذا ما كايناش أسعار
+  }
+
+  window.location.href = "product.html";
+}
+
+</script>
+
+  </body>
+</html>

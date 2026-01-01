@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produit</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== PAGE ===== */
+body {
+  background: #fff;
+  margin: 0;
+  padding: 40px;
+}
+
+.product-page {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* IMAGE */
+.product-image img {
+  width: 350px;
+  border-radius: 15px;
+}
+
+/* INFO */
+.product-info {
+  max-width: 420px;
+}
+
+.product-info h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+/* BUTTON */
+.acheter-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  width: 320px;
+  border-radius: 15px;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+}
+
+.modal-content button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 25px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="product-page">
+
+  <!-- IMAGE -->
+  <div class="product-image">
+    <img id="productImage" alt="Produit">
+  </div>
+
+  <!-- INFO -->
+  <div class="product-info">
+    <h1 id="productName"></h1>
+
+    <label>Taille *</label>
+    <select id="sizeSelect" onchange="updatePrice()">
+      <option value="">Choisir</option>
+      
+      <option value="3">3 ml</option>
+      <option value="10">10 ml</option>
+      <option value="box">Boîte complète</option>
+    </select>
+
+    <p class="price">
+      Prix : <span id="price">—</span> DH
+    </p>
+
+    <label>Quantité *</label>
+    <input type="number" id="quantity" value="1" min="1">
+
+    <button class="acheter-btn" onclick="openForm()">Acheter</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <h3>Finaliser la commande</h3>
+
+    <input id="Prenom" placeholder="Prenom">
+    <input id="Nom" placeholder="Nom">
+    <input id="city" placeholder="Ville">
+    <input id="phone" placeholder="Téléphone">
+    <h5>+35 dh de la livraison par tout au maroc</h5>
+
+    <button onclick="sendWhatsApp()">Confirmer</button>
+  </div>
+</div>
+
+<script>
+/* ===== DATA ===== */
+let prices = {};
+let productName = "";
+
+/* ===== LOAD DATA ===== */
+window.onload = () => {
+  productName = localStorage.getItem("productName");
+  const image = localStorage.getItem("productImage");
+  prices = JSON.parse(localStorage.getItem("productPrices"));
+
+  document.getElementById("productName").innerText = productName;
+  document.getElementById("productImage").src = image;
+};
+
+/* ===== PRICE ===== */
+function updatePrice() {
+  const size = document.getElementById("sizeSelect").value;
+  if (!size) {
+    document.getElementById("price").innerText = "—";
+    return;
+  }
+  document.getElementById("price").innerText = prices[size];
+}
+
+/* ===== OPEN FORM ===== */
+function openForm() {
+  const size = document.getElementById("sizeSelect").value;
+  if (!size) {
+    alert("Veuillez choisir une taille");
+    return;
+  }
+  document.getElementById("orderModal").style.display = "flex";
+}
+
+/* ===== WHATSAPP ===== */
+
+function sendWhatsApp() {
+  const size = document.getElementById("sizeSelect").value;
+  const qty = document.getElementById("quantity").value;
+
+  const prenom = document.getElementById("Prenom").value;
+  const nom = document.getElementById("Nom").value;
+  const city = document.getElementById("city").value;
+  const phone = document.getElementById("phone").value;
+
+  if (!prenom || !nom || !city || !phone) {
+    alert("Veuillez remplir tous les champs");
+    return;
+  }
+
+  const message =
+`🛍️ Nouvelle commande
+Parfum : ${productName}
+Taille : ${size === "box" ? "Boîte complète" : size + " ml"}
+Quantité : ${qty}
+
+👤 Nom : ${prenom} ${nom}
+🏙️ Ville : ${city}
+📞 Téléphone : ${phone}
+
+🚚 Livraison : +35 DH`;
+
+  const url =
+    "https://wa.me/212681934434?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+
+</script>
+
+</body>
+</html>
