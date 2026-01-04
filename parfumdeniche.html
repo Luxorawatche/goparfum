@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>GOHAN FRAGRANCE</title>
+</head>
+
+<body>
+
+<section class="section__container product__container" id="product">
+  <h2 class="section__header">PARFUM DE NICHE</h2>
+
+  <div class="product__grid">
+
+    <!-- PRODUIT 1 -->
+    <div class="product__card">
+      <img src="img/tom ford vanille.webp" alt="">
+      <h5>TOM FORD TOBACCO VANILLE</h5>
+      <h4>4500,00 MAD</h4>
+      <button class="acheter-btn"
+        onclick="openForm('TOM FORD TOBACCO VANILLE')">
+        Acheter
+      </button>
+    </div>
+
+    <!-- PRODUIT 2 -->
+    <div class="product__card">
+      <img src="img/tom ford vanille sex.webp" alt="">
+      <h5>TOM FORD VANILLA SEX</h5>
+      <h4>4300,00 MAD</h4>
+      <button class="acheter-btn"
+        onclick="openForm('TOM FORD VANILLA SEX')">
+        Acheter
+      </button>
+    </div>
+
+    <!-- PRODUIT 3 -->
+    <div class="product__card">
+      <img src="img/tom ford bitter.webp" alt="">
+      <h5>TOM FORD BITTER PEACH</h5>
+      <h4>5000,00 MAD</h4>
+      <button class="acheter-btn"
+        onclick="openForm('TOM FORD BITTER PEACH')">
+        Acheter
+      </button>
+    </div>
+
+    <!-- PRODUIT 4 -->
+    <div class="product__card">
+      <img src="img/xerjoff.webp" alt="">
+      <h5>XERJOFF ERBA PURA</h5>
+      <h4>3000,00 MAD</h4>
+      <button class="acheter-btn"
+        onclick="openForm('XERJOFF ERBA PURA')">
+        Acheter
+      </button>
+    </div>
+
+
+
+<div class="product__card">
+      <img src="img/xerjof overdose.webp" alt="">
+      <h5>XERJOFF ACCENTO OVERDOSE</h5>
+      <h4>3500,00 MAD</h4>
+      <button class="acheter-btn"
+        onclick="openForm('XERJOFF ACCENTO OVERDOSE')">
+        Acheter
+      </button>
+    </div>
+    <div class="product__card">
+      <img src="img/baccarat rouge.webp" alt="">
+      <h5>MFK BACCARAT ROUGE 540</h5>
+      <h4>4800,00 MAD</h4>
+      
+      <button class="acheter-btn"
+        onclick="openForm('MFK BACCARAT ROUGE 540')">
+        Acheter
+      </button>
+    </div>
+    
+
+
+
+
+  </div>
+</section>
+<style>
+    /* ====== PRODUCT SECTION ====== */
+.product__container {
+  padding: 30px 20px;
+  background: #f7f7f7;
+}
+
+.section__header {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* GRID */
+/* GRID */
+.product__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 💻 حاسوب */
+  gap: 25px;
+  max-width: 1200px; /* عرض مناسب للحاسوب */
+  margin: auto;
+  padding: 10px;
+}
+
+
+/* CARD */
+.product__card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 15px 20px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 20px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.product__card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* TITLE */
+.product__card h5 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* PRICE */
+.product__card h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.acheter-btn {
+  width: 100%;
+  max-width: 220px;
+  padding: 14px 0;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.acheter-btn:hover {
+  background: linear-gradient(135deg, #000, #222);
+  transform: scale(1.03);
+}
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+/* CLOSE */
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* INPUT GROUP */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+}
+
+.input-group i {
+  font-size: 18px;
+  color: #555;
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+}
+
+/* PHONE */
+.input-group.phone {
+  padding-left: 12px;
+}
+
+.country-code {
+  font-weight: 600;
+  margin-right: 8px;
+  color: #111;
+}
+
+/* BUTTON */
+.confirm-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.confirm-btn:hover {
+  background: linear-gradient(135deg, #000, #222);
+}
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .product__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .product__card {
+    padding: 15px 10px 18px;
+    border-radius: 14px;
+  }
+
+  .product__card img {
+    max-width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .product__card h5 {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .product__card h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .acheter-btn {
+    font-size: 14px;
+    padding: 10px 0;
+    border-radius: 25px;
+  }
+}
+
+</style>
+
+<!-- MODAL -->
+<div id="orderForm" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+
+    <h3>Informations de commande</h3>
+
+    <div class="input-group">
+      <i class="ri-user-line"></i>
+      <input type="text" id="prenom" placeholder="Prénom">
+    </div>
+
+    <div class="input-group">
+      <i class="ri-user-3-line"></i>
+      <input type="text" id="nom" placeholder="Nom">
+    </div>
+
+    <div class="input-group">
+      <i class="ri-map-pin-line"></i>
+      <input type="text" id="ville" placeholder="Ville">
+    </div>
+
+    <div class="input-group phone">
+      <span class="country-code">+212</span>
+      <input type="tel" id="telephone" placeholder="6XXXXXXXX">
+    </div>
+    <h4>35 dh de la livraison par tout le maroc</h4>
+
+    <button class="confirm-btn" onclick="sendWhatsApp()">
+      Confirmer la commande
+    </button>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+let selectedProduct = "";
+
+function openForm(productName) {
+  selectedProduct = productName;
+  document.getElementById("orderForm").style.display = "flex";
+}
+
+function closeForm() {
+  document.getElementById("orderForm").style.display = "none";
+}
+
+function sendWhatsApp() {
+  let prenom = document.getElementById("prenom").value;
+  let nom = document.getElementById("nom").value;
+  let ville = document.getElementById("ville").value;
+  let tel = document.getElementById("telephone").value;
+
+  if (!prenom || !nom || !ville || !tel) {
+    alert("Veuillez remplir tous les champs");
+    return;
+  }
+
+  let message =
+    "🛒 Nouvelle commande%0A%0A" +
+    "Produit: " + selectedProduct + "%0A" +
+    "Prénom: " + prenom + "%0A" +
+    "Nom: " + nom + "%0A" +
+    "Ville: " + ville + "%0A" +
+    "Téléphone: " + tel;
+
+  let whatsappURL = "https://wa.me/212681934434?text=" + message;
+  window.open(whatsappURL, "_blank");
+}
+</script>
+
+</body>
+</html>
